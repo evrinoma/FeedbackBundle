@@ -1,0 +1,18 @@
+services:
+  evrinoma.feedback.constraint.property.body:
+    class: Evrinoma\FeedbackBundle\Constraint\Property\Body
+
+  evrinoma.feedback.constraint.property.title:
+    class: Evrinoma\FeedbackBundle\Constraint\Property\Title
+
+  evrinoma.feedback.constraint.property.image:
+    class: Evrinoma\FeedbackBundle\Constraint\Property\Image
+
+  evrinoma.feedback.constraint.property.preview:
+    class: Evrinoma\FeedbackBundle\Constraint\Property\Preview
+
+  evrinoma.feedback.constraint.property.active:
+    class: Evrinoma\FeedbackBundle\Constraint\Property\Active
+
+  evrinoma.feedback.constraint.property.position:
+    class: Evrinoma\FeedbackBundle\Constraint\Property\Position

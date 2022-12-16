@@ -1,0 +1,5 @@
+services:
+  evrinoma.feedback.fixtures.feedback:
+    class: Evrinoma\FeedbackBundle\Fixtures\FeedbackFixtures
+    tags:
+      - { name: doctrine.fixture.orm }

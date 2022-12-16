@@ -1,0 +1,3 @@
+feedback_api:
+  resource: "@EvrinomaFeedbackBundle/Controller/FeedbackApiController.php"
+  type: annotation

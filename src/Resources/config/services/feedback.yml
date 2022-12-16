@@ -1,0 +1,102 @@
+services:
+  Evrinoma\FeedbackBundle\Controller\FeedbackApiController:
+    alias: evrinoma.feedback.api.controller
+    public: true
+
+  evrinoma.feedback.api.controller:
+    class: Evrinoma\FeedbackBundle\Controller\FeedbackApiController
+    arguments:
+      - '@jms_serializer'
+      - '@request_stack'
+      - '@evrinoma.dto.factory'
+      - '@evrinoma.feedback.facade'
+    autowire: true
+
+  evrinoma.feedback.facade:
+    class: Evrinoma\FeedbackBundle\Facade\Feedback\Facade
+    arguments:
+      - '@evrinoma.feedback.command.manager'
+      - '@evrinoma.feedback.query.manager'
+    autowire: true
+
+  Evrinoma\FeedbackBundle\Facade\Feedback\FacadeInterface:
+    alias: evrinoma.feedback.facade
+
+  evrinoma.feedback.factory:
+    class: Evrinoma\FeedbackBundle\Factory\FeedbackFactory
+    public: true
+    arguments:
+
+  evrinoma.feedback.orm.repository:
+    class: Evrinoma\FeedbackBundle\Repository\Orm\Feedback\FeedbackRepository
+    public: true
+    arguments:
+
+  evrinoma.feedback.command.manager:
+    class: Evrinoma\FeedbackBundle\Manager\CommandManager
+    arguments:
+      - '@evrinoma.feedback.validator'
+      - '@evrinoma.feedback.repository'
+      - '@evrinoma.feedback.factory'
+      - '@evrinoma.feedback.command.mediator'
+
+  Evrinoma\FeedbackBundle\Manager\CommandManagerInterface:
+    alias: evrinoma.feedback.command.manager
+
+  evrinoma.feedback.query.manager:
+    class: Evrinoma\FeedbackBundle\Manager\QueryManager
+    arguments:
+      - '@evrinoma.feedback.repository'
+
+  Evrinoma\FeedbackBundle\Manager\QueryManagerInterface:
+    alias: evrinoma.feedback.query.manager
+    
+  evrinoma.feedback.validator:
+    class: Evrinoma\FeedbackBundle\Validator\FeedbackValidator
+    public: true
+    arguments:
+
+  Evrinoma\FeedbackBundle\Validator\FeedbackValidator:
+    alias: evrinoma.feedback.validator
+
+  evrinoma.feedback.query.orm.mediator:
+    class: Evrinoma\FeedbackBundle\Mediator\Orm\QueryMediator
+    public: true
+    arguments:
+
+  Evrinoma\FeedbackBundle\Mediator\Orm\QueryMediator:
+    alias: evrinoma.feedback.query.orm.mediator
+
+  evrinoma.feedback.command.mediator:
+    class: Evrinoma\FeedbackBundle\Mediator\CommandMediator
+    public: true
+    arguments:
+      - '@evrinoma.feedback.system.file_system'
+
+  Evrinoma\FeedbackBundle\Mediator\CommandMediator:
+    alias: evrinoma.feedback.command.mediator
+
+  Evrinoma\FeedbackBundle\Mediator\CommandMediatorInterface:
+    alias: evrinoma.feedback.command.mediator
+
+  evrinoma.feedback.pre.validator:
+    class: Evrinoma\FeedbackBundle\PreValidator\DtoPreValidator
+    public: true
+    arguments:
+
+  Evrinoma\FeedbackBundle\PreValidator\DtoPreValidator:
+    alias: evrinoma.feedback.pre.validator
+
+  Evrinoma\FeedbackBundle\PreValidator\DtoPreValidatorInterface:
+    alias: evrinoma.feedback.pre.validator
+
+  evrinoma.feedback.system.file_system:
+    class: Evrinoma\FeedbackBundle\System\FileSystem
+    public: true
+    arguments:
+
+  Evrinoma\FeedbackBundle\System\FileSystem:
+    alias: evrinoma.feedback.system.file_system
+
+  Evrinoma\FeedbackBundle\System\FileSystemInterface:
+    alias: evrinoma.feedback.system.file_system

@@ -1,0 +1,3 @@
+feedbackapi:
+  resource: "@EvrinomaFeedbackBundle/Resources/config/routing/api.yml"
+  prefix: evrinoma

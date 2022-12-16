@@ -1,0 +1,9 @@
+services:
+  evrinoma.feedback.test.functional.action.feedback:
+    class: Evrinoma\FeedbackBundle\Tests\Functional\Action\BaseFeedback
+    public: true
+    arguments:
+
+  Evrinoma\FeedbackBundle\Tests\Functional\Action\BaseFeedback:
+    alias: evrinoma.feedback.test.functional.action.feedback
+    public: true
