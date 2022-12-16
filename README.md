@@ -10,10 +10,10 @@
         constraints: Вкл/выкл проверки полей сущности по умолчанию 
         dto_class: App\Feedback\Dto\FeedbackDto класс dto с которым работает сущность
         decorates:
-          command - декоратор mediator команд соц сетей 
-          query - декоратор mediator запросов соц сетей
+          command - декоратор mediator команд обратной связи 
+          query - декоратор mediator запросов обратной связи
         services:
-          pre_validator - переопределение сервиса валидатора соц сетей
+          pre_validator - переопределение сервиса валидатора обратной связи
           handler - переопределение сервиса обработчика сущностей
           file_system - переопределение сервиса сохранения файла
 
@@ -37,25 +37,25 @@ Actions в контроллере разбиты на две группы
 
 группы  сериализации
 
-    1. API_GET_FEEDBACK, API_CRITERIA_FEEDBACK - получение соц сети
-    2. API_POST_FEEDBACK - создание соц сети
-    3. API_PUT_FEEDBACK -  редактирование соц сети
+    1. API_GET_FEEDBACK, API_CRITERIA_FEEDBACK - получение обратной связи
+    2. API_POST_FEEDBACK - создание обратной связи
+    3. API_PUT_FEEDBACK -  редактирование обратной связи
 
 # Статусы:
 
     создание:
-        описание создано HTTP_CREATED 201
+        обратная связь создана HTTP_CREATED 201
     обновление:
-        описание обновлено HTTP_OK 200
+        обратная связь обновлена HTTP_OK 200
     удаление:
-        описание удалено HTTP_ACCEPTED 202
+        обратная связь удалена HTTP_ACCEPTED 202
     получение:
-        описание(я) найдены HTTP_OK 200
+        обратная связь(и) найдены HTTP_OK 200
     ошибки:
-        если описание не найдено FeedbackNotFoundException возвращает HTTP_NOT_FOUND 404
-        если описание не уникально UniqueConstraintViolationException возвращает HTTP_CONFLICT 409
-        если описание не прошло валидацию FeedbackInvalidException возвращает HTTP_UNPROCESSABLE_ENTITY 422
-        если описание не может быть сохранено FeedbackCannotBeSavedException возвращает HTTP_NOT_IMPLEMENTED 501
+        если обратная связь не найдена FeedbackNotFoundException возвращает HTTP_NOT_FOUND 404
+        если обратная связь не уникальна UniqueConstraintViolationException возвращает HTTP_CONFLICT 409
+        если обратная связь не прошла валидацию FeedbackInvalidException возвращает HTTP_UNPROCESSABLE_ENTITY 422
+        если обратная связь не может быть сохранена FeedbackCannotBeSavedException возвращает HTTP_NOT_IMPLEMENTED 501
         все остальные ошибки возвращаются как HTTP_BAD_REQUEST 400
 
 # Constraint
