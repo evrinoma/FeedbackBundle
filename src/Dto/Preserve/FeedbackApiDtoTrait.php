@@ -13,13 +13,13 @@ declare(strict_types=1);
 
 namespace Evrinoma\FeedbackBundle\Dto\Preserve;
 
-use Evrinoma\FeedbackBundle\DtoCommon\ValueObject\Preserve\PreviewTrait;
-use Evrinoma\FeedbackBundle\DtoCommon\ValueObject\Preserve\ImageTrait;
 use Evrinoma\DtoCommon\ValueObject\Preserve\ActiveTrait;
 use Evrinoma\DtoCommon\ValueObject\Preserve\BodyTrait;
 use Evrinoma\DtoCommon\ValueObject\Preserve\IdTrait;
 use Evrinoma\DtoCommon\ValueObject\Preserve\PositionTrait;
 use Evrinoma\DtoCommon\ValueObject\Preserve\TitleTrait;
+use Evrinoma\FeedbackBundle\DtoCommon\ValueObject\Preserve\ImageTrait;
+use Evrinoma\FeedbackBundle\DtoCommon\ValueObject\Preserve\PreviewTrait;
 
 trait FeedbackApiDtoTrait
 {
@@ -28,6 +28,6 @@ trait FeedbackApiDtoTrait
     use IdTrait;
     use ImageTrait;
     use PositionTrait;
-    use TitleTrait;
     use PreviewTrait;
+    use TitleTrait;
 }

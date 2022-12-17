@@ -13,10 +13,10 @@ declare(strict_types=1);
 
 namespace Evrinoma\FeedbackBundle\Mediator;
 
+use Evrinoma\DtoBundle\Dto\DtoInterface;
 use Evrinoma\FeedbackBundle\Dto\FeedbackApiDtoInterface;
 use Evrinoma\FeedbackBundle\Model\Feedback\FeedbackInterface;
 use Evrinoma\FeedbackBundle\System\FileSystemInterface;
-use Evrinoma\DtoBundle\Dto\DtoInterface;
 use Evrinoma\UtilsBundle\Mediator\AbstractCommandMediator;
 
 class CommandMediator extends AbstractCommandMediator implements CommandMediatorInterface
@@ -37,8 +37,8 @@ class CommandMediator extends AbstractCommandMediator implements CommandMediator
             ->setTitle($dto->getTitle())
             ->setPosition($dto->getPosition())
             ->setBody($dto->getBody())
-            ->setImage($fileImage->getRealPath())
-            ->setPreview($filePreview->getRealPath())
+            ->setImage($fileImage->getPath())
+            ->setPreview($filePreview->getPath())
             ->setUpdatedAt(new \DateTimeImmutable())
             ->setActive($dto->getActive());
 
@@ -61,8 +61,8 @@ class CommandMediator extends AbstractCommandMediator implements CommandMediator
             ->setTitle($dto->getTitle())
             ->setPosition($dto->getPosition())
             ->setBody($dto->getBody())
-            ->setImage($fileImage->getRealPath())
-            ->setPreview($filePreview->getRealPath())
+            ->setImage($fileImage->getPath())
+            ->setPreview($filePreview->getPath())
             ->setCreatedAt(new \DateTimeImmutable())
             ->setActiveToActive();
 

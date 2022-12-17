@@ -13,8 +13,8 @@ declare(strict_types=1);
 
 namespace Evrinoma\FeedbackBundle\DtoCommon\ValueObject\Mutable;
 
-use Evrinoma\FeedbackBundle\DtoCommon\ValueObject\Immutable\ImageTrait as ImageImmutableTrait;
 use Evrinoma\DtoBundle\Dto\DtoInterface;
+use Evrinoma\FeedbackBundle\DtoCommon\ValueObject\Immutable\ImageTrait as ImageImmutableTrait;
 use Symfony\Component\HttpFoundation\File\File;
 
 trait ImageTrait

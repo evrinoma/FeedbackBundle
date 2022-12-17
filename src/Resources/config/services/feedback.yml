@@ -17,6 +17,7 @@ services:
     arguments:
       - '@evrinoma.feedback.command.manager'
       - '@evrinoma.feedback.query.manager'
+      - '@evrinoma.feedback.adaptor'
     autowire: true
 
   Evrinoma\FeedbackBundle\Facade\Feedback\FacadeInterface:

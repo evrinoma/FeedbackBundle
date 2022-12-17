@@ -13,12 +13,12 @@ declare(strict_types=1);
 
 namespace Evrinoma\FeedbackBundle\Dto\Preserve;
 
-use Evrinoma\FeedbackBundle\DtoCommon\ValueObject\Mutable\ImageInterface;
 use Evrinoma\DtoCommon\ValueObject\Mutable\ActiveInterface;
 use Evrinoma\DtoCommon\ValueObject\Mutable\BodyInterface;
 use Evrinoma\DtoCommon\ValueObject\Mutable\IdInterface;
 use Evrinoma\DtoCommon\ValueObject\Mutable\PositionInterface;
 use Evrinoma\DtoCommon\ValueObject\Mutable\TitleInterface;
+use Evrinoma\FeedbackBundle\DtoCommon\ValueObject\Mutable\ImageInterface;
 use Evrinoma\FeedbackBundle\DtoCommon\ValueObject\Mutable\PreviewInterface;
 
 interface FeedbackApiDtoInterface extends IdInterface, ImageInterface, BodyInterface, TitleInterface, PositionInterface, ActiveInterface, PreviewInterface

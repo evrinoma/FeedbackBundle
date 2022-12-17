@@ -13,9 +13,9 @@ declare(strict_types=1);
 
 namespace Evrinoma\FeedbackBundle\PreValidator;
 
+use Evrinoma\DtoBundle\Dto\DtoInterface;
 use Evrinoma\FeedbackBundle\Dto\FeedbackApiDtoInterface;
 use Evrinoma\FeedbackBundle\Exception\FeedbackInvalidException;
-use Evrinoma\DtoBundle\Dto\DtoInterface;
 use Evrinoma\UtilsBundle\PreValidator\AbstractPreValidator;
 
 class DtoPreValidator extends AbstractPreValidator implements DtoPreValidatorInterface

@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace Evrinoma\FeedbackBundle\Dto;
 
-use Evrinoma\FeedbackBundle\DtoCommon\ValueObject\Mutable\ImageTrait;
 use Evrinoma\DtoBundle\Dto\AbstractDto;
 use Evrinoma\DtoBundle\Dto\DtoInterface;
 use Evrinoma\DtoCommon\ValueObject\Mutable\ActiveTrait;
@@ -21,6 +20,7 @@ use Evrinoma\DtoCommon\ValueObject\Mutable\BodyTrait;
 use Evrinoma\DtoCommon\ValueObject\Mutable\IdTrait;
 use Evrinoma\DtoCommon\ValueObject\Mutable\PositionTrait;
 use Evrinoma\DtoCommon\ValueObject\Mutable\TitleTrait;
+use Evrinoma\FeedbackBundle\DtoCommon\ValueObject\Mutable\ImageTrait;
 use Evrinoma\FeedbackBundle\DtoCommon\ValueObject\Mutable\PreviewTrait;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -30,8 +30,8 @@ class FeedbackApiDto extends AbstractDto implements FeedbackApiDtoInterface
     use BodyTrait;
     use IdTrait;
     use ImageTrait;
-    use PreviewTrait;
     use PositionTrait;
+    use PreviewTrait;
     use TitleTrait;
 
     public function toDto(Request $request): DtoInterface

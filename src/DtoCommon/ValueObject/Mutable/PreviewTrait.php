@@ -13,8 +13,8 @@ declare(strict_types=1);
 
 namespace Evrinoma\FeedbackBundle\DtoCommon\ValueObject\Mutable;
 
-use Evrinoma\FeedbackBundle\DtoCommon\ValueObject\Immutable\PreviewTrait as PreviewImmutableTrait;
 use Evrinoma\DtoBundle\Dto\DtoInterface;
+use Evrinoma\FeedbackBundle\DtoCommon\ValueObject\Immutable\PreviewTrait as PreviewImmutableTrait;
 use Symfony\Component\HttpFoundation\File\File;
 
 trait PreviewTrait
