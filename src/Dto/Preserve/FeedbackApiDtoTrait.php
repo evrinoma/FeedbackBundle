@@ -16,10 +16,10 @@ namespace Evrinoma\FeedbackBundle\Dto\Preserve;
 use Evrinoma\DtoCommon\ValueObject\Preserve\ActiveTrait;
 use Evrinoma\DtoCommon\ValueObject\Preserve\BodyTrait;
 use Evrinoma\DtoCommon\ValueObject\Preserve\IdTrait;
-use Evrinoma\DtoCommon\ValueObject\Preserve\PositionTrait;
-use Evrinoma\DtoCommon\ValueObject\Preserve\TitleTrait;
 use Evrinoma\DtoCommon\ValueObject\Preserve\ImageTrait;
+use Evrinoma\DtoCommon\ValueObject\Preserve\PositionTrait;
 use Evrinoma\DtoCommon\ValueObject\Preserve\PreviewTrait;
+use Evrinoma\DtoCommon\ValueObject\Preserve\TitleTrait;
 
 trait FeedbackApiDtoTrait
 {

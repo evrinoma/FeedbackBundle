@@ -32,8 +32,8 @@ abstract class AbstractFeedback implements FeedbackInterface
     use BodyTrait;
     use CreateUpdateAtTrait;
     use IdTrait;
-    use PositionTrait;
-    use TitleTrait;
     use ImageTrait;
+    use PositionTrait;
     use PreviewTrait;
+    use TitleTrait;
 }

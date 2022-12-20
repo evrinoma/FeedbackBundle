@@ -17,10 +17,10 @@ use Evrinoma\DtoBundle\Dto\DtoInterface;
 use Evrinoma\DtoCommon\ValueObject\Immutable\ActiveInterface;
 use Evrinoma\DtoCommon\ValueObject\Immutable\BodyInterface;
 use Evrinoma\DtoCommon\ValueObject\Immutable\IdInterface;
-use Evrinoma\DtoCommon\ValueObject\Immutable\PositionInterface;
-use Evrinoma\DtoCommon\ValueObject\Immutable\TitleInterface;
 use Evrinoma\DtoCommon\ValueObject\Immutable\ImageInterface;
+use Evrinoma\DtoCommon\ValueObject\Immutable\PositionInterface;
 use Evrinoma\DtoCommon\ValueObject\Immutable\PreviewInterface;
+use Evrinoma\DtoCommon\ValueObject\Immutable\TitleInterface;
 
 interface FeedbackApiDtoInterface extends DtoInterface, IdInterface, ImageInterface, TitleInterface, BodyInterface, PositionInterface, ActiveInterface, PreviewInterface
 {
