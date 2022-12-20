@@ -17,16 +17,11 @@ use Evrinoma\UtilsBundle\Entity\ActiveInterface;
 use Evrinoma\UtilsBundle\Entity\BodyInterface;
 use Evrinoma\UtilsBundle\Entity\CreateUpdateAtInterface;
 use Evrinoma\UtilsBundle\Entity\IdInterface;
+use Evrinoma\UtilsBundle\Entity\ImageInterface;
 use Evrinoma\UtilsBundle\Entity\PositionInterface;
+use Evrinoma\UtilsBundle\Entity\PreviewInterface;
 use Evrinoma\UtilsBundle\Entity\TitleInterface;
 
-interface FeedbackInterface extends ActiveInterface, CreateUpdateAtInterface, IdInterface, BodyInterface, TitleInterface, PositionInterface
+interface FeedbackInterface extends ActiveInterface, CreateUpdateAtInterface, IdInterface, BodyInterface, TitleInterface, PositionInterface, ImageInterface, PreviewInterface
 {
-    public function getPreview(): string;
-
-    public function setPreview(string $preview): FeedbackInterface;
-
-    public function getImage(): string;
-
-    public function setImage(string $image): FeedbackInterface;
 }

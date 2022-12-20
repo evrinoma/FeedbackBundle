@@ -20,8 +20,8 @@ use Evrinoma\DtoCommon\ValueObject\Mutable\BodyTrait;
 use Evrinoma\DtoCommon\ValueObject\Mutable\IdTrait;
 use Evrinoma\DtoCommon\ValueObject\Mutable\PositionTrait;
 use Evrinoma\DtoCommon\ValueObject\Mutable\TitleTrait;
-use Evrinoma\FeedbackBundle\DtoCommon\ValueObject\Mutable\ImageTrait;
-use Evrinoma\FeedbackBundle\DtoCommon\ValueObject\Mutable\PreviewTrait;
+use Evrinoma\DtoCommon\ValueObject\Mutable\ImageTrait;
+use Evrinoma\DtoCommon\ValueObject\Mutable\PreviewTrait;
 use Symfony\Component\HttpFoundation\Request;
 
 class FeedbackApiDto extends AbstractDto implements FeedbackApiDtoInterface

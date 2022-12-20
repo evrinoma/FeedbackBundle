@@ -18,7 +18,9 @@ use Evrinoma\UtilsBundle\Entity\ActiveTrait;
 use Evrinoma\UtilsBundle\Entity\BodyTrait;
 use Evrinoma\UtilsBundle\Entity\CreateUpdateAtTrait;
 use Evrinoma\UtilsBundle\Entity\IdTrait;
+use Evrinoma\UtilsBundle\Entity\ImageTrait;
 use Evrinoma\UtilsBundle\Entity\PositionTrait;
+use Evrinoma\UtilsBundle\Entity\PreviewTrait;
 use Evrinoma\UtilsBundle\Entity\TitleTrait;
 
 /**
@@ -32,54 +34,6 @@ abstract class AbstractFeedback implements FeedbackInterface
     use IdTrait;
     use PositionTrait;
     use TitleTrait;
-
-    /**
-     * @ORM\Column(name="image", type="string", length=2047)
-     */
-    protected string $image;
-
-    /**
-     * @ORM\Column(name="preview", type="string", length=2047)
-     */
-    protected string $preview;
-
-    /**
-     * @return string
-     */
-    public function getPreview(): string
-    {
-        return $this->preview;
-    }
-
-    /**
-     * @param string $preview
-     *
-     * @return FeedbackInterface
-     */
-    public function setPreview(string $preview): FeedbackInterface
-    {
-        $this->preview = $preview;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getImage(): string
-    {
-        return $this->image;
-    }
-
-    /**
-     * @param string $image
-     *
-     * @return FeedbackInterface
-     */
-    public function setImage(string $image): FeedbackInterface
-    {
-        $this->image = $image;
-
-        return $this;
-    }
+    use ImageTrait;
+    use PreviewTrait;
 }
