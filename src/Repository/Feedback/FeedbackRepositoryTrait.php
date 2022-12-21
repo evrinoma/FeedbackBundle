@@ -52,10 +52,6 @@ trait FeedbackRepositoryTrait
      */
     public function remove(FeedbackInterface $feedback): bool
     {
-        $feedback
-            ->setUpdatedAt(new \DateTimeImmutable())
-            ->setActiveToDelete();
-
         return true;
     }
 
