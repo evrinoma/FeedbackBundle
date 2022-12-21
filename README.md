@@ -4,7 +4,7 @@
 
     feedback:
         db_driver: orm модель данных
-        factory: App\Feedback\Factory\FeedbackFactory фабрика для создания объектов,
+        factory: App\Feedback\Factory\Feedback\Factory фабрика для создания объектов,
                  недостающие значения можно разрешить только на уровне Mediator
         entity: App\Feedback\Entity\Feedback сущность
         constraints: Вкл/выкл проверки полей сущности по умолчанию 

@@ -17,7 +17,7 @@ use Evrinoma\FeedbackBundle\DependencyInjection\Compiler\Constraint\Property\Fee
 use Evrinoma\FeedbackBundle\Dto\FeedbackApiDto;
 use Evrinoma\FeedbackBundle\Entity\Feedback\BaseFeedback;
 use Evrinoma\FeedbackBundle\EvrinomaFeedbackBundle;
-use Evrinoma\FeedbackBundle\Factory\FeedbackFactory;
+use Evrinoma\FeedbackBundle\Factory\Feedback\Factory as FeedbackFactory;
 use Evrinoma\FeedbackBundle\Mediator\QueryMediatorInterface;
 use Evrinoma\FeedbackBundle\Repository\Feedback\FeedbackCommandRepositoryInterface;
 use Evrinoma\FeedbackBundle\Repository\Feedback\FeedbackQueryRepositoryInterface;

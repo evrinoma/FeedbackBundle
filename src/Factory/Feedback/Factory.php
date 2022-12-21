@@ -11,13 +11,13 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Evrinoma\FeedbackBundle\Factory;
+namespace Evrinoma\FeedbackBundle\Factory\Feedback;
 
 use Evrinoma\FeedbackBundle\Dto\FeedbackApiDtoInterface;
 use Evrinoma\FeedbackBundle\Entity\Feedback\BaseFeedback;
 use Evrinoma\FeedbackBundle\Model\Feedback\FeedbackInterface;
 
-class FeedbackFactory implements FeedbackFactoryInterface
+class Factory implements FactoryInterface
 {
     private static string $entityClass = BaseFeedback::class;
 

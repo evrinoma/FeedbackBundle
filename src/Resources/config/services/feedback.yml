@@ -24,7 +24,7 @@ services:
     alias: evrinoma.feedback.facade
 
   evrinoma.feedback.factory:
-    class: Evrinoma\FeedbackBundle\Factory\FeedbackFactory
+    class: Evrinoma\FeedbackBundle\Factory\Feedback\Factory
     public: true
     arguments:
 

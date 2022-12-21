@@ -19,7 +19,7 @@ use Evrinoma\FeedbackBundle\Exception\FeedbackCannotBeRemovedException;
 use Evrinoma\FeedbackBundle\Exception\FeedbackCannotBeSavedException;
 use Evrinoma\FeedbackBundle\Exception\FeedbackInvalidException;
 use Evrinoma\FeedbackBundle\Exception\FeedbackNotFoundException;
-use Evrinoma\FeedbackBundle\Factory\FeedbackFactoryInterface;
+use Evrinoma\FeedbackBundle\Factory\FactoryInterface;
 use Evrinoma\FeedbackBundle\Mediator\CommandMediatorInterface;
 use Evrinoma\FeedbackBundle\Model\Feedback\FeedbackInterface;
 use Evrinoma\FeedbackBundle\Repository\Feedback\FeedbackRepositoryInterface;
@@ -29,16 +29,16 @@ final class CommandManager implements CommandManagerInterface
 {
     private FeedbackRepositoryInterface $repository;
     private ValidatorInterface            $validator;
-    private FeedbackFactoryInterface           $factory;
+    private FactoryInterface           $factory;
     private CommandMediatorInterface      $mediator;
 
     /**
      * @param ValidatorInterface          $validator
      * @param FeedbackRepositoryInterface $repository
-     * @param FeedbackFactoryInterface    $factory
+     * @param FactoryInterface            $factory
      * @param CommandMediatorInterface    $mediator
      */
-    public function __construct(ValidatorInterface $validator, FeedbackRepositoryInterface $repository, FeedbackFactoryInterface $factory, CommandMediatorInterface $mediator)
+    public function __construct(ValidatorInterface $validator, FeedbackRepositoryInterface $repository, FactoryInterface $factory, CommandMediatorInterface $mediator)
     {
         $this->validator = $validator;
         $this->repository = $repository;

@@ -11,12 +11,12 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Evrinoma\FeedbackBundle\Factory;
+namespace Evrinoma\FeedbackBundle\Factory\Feedback;
 
 use Evrinoma\FeedbackBundle\Dto\FeedbackApiDtoInterface;
 use Evrinoma\FeedbackBundle\Model\Feedback\FeedbackInterface;
 
-interface FeedbackFactoryInterface
+interface FactoryInterface
 {
     /**
      * @param FeedbackApiDtoInterface $dto
