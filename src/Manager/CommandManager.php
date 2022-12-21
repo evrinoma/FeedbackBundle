@@ -19,7 +19,7 @@ use Evrinoma\FeedbackBundle\Exception\FeedbackCannotBeRemovedException;
 use Evrinoma\FeedbackBundle\Exception\FeedbackCannotBeSavedException;
 use Evrinoma\FeedbackBundle\Exception\FeedbackInvalidException;
 use Evrinoma\FeedbackBundle\Exception\FeedbackNotFoundException;
-use Evrinoma\FeedbackBundle\Factory\FactoryInterface;
+use Evrinoma\FeedbackBundle\Factory\Feedback\FactoryInterface;
 use Evrinoma\FeedbackBundle\Mediator\CommandMediatorInterface;
 use Evrinoma\FeedbackBundle\Model\Feedback\FeedbackInterface;
 use Evrinoma\FeedbackBundle\Repository\Feedback\FeedbackRepositoryInterface;
