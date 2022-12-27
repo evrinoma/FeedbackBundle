@@ -7,9 +7,11 @@ Evrinoma\FeedbackBundle\Model\Feedback\AbstractFeedback:
     createdAt:
       type: DateTimeImmutable<'Y-m-d H:i'>
       groups: [ API_GET_FEEDBACK, API_POST_FEEDBACK, API_PUT_FEEDBACK, ]
+      expose: true
     updatedAt:
       type: DateTimeImmutable<'Y-m-d H:i'>
       groups: [ API_GET_FEEDBACK, API_POST_FEEDBACK, API_PUT_FEEDBACK, ]
+      expose: true
     active:
       groups: [ API_GET_FEEDBACK, API_POST_FEEDBACK, API_PUT_FEEDBACK, ]
       expose: true
