@@ -19,7 +19,9 @@ use Evrinoma\FeedbackBundle\Tests\Functional\Helper\BaseFeedbackTestTrait;
 use Evrinoma\FeedbackBundle\Tests\Functional\ValueObject\Feedback\Active;
 use Evrinoma\FeedbackBundle\Tests\Functional\ValueObject\Feedback\Body;
 use Evrinoma\FeedbackBundle\Tests\Functional\ValueObject\Feedback\Id;
+use Evrinoma\FeedbackBundle\Tests\Functional\ValueObject\Feedback\Image;
 use Evrinoma\FeedbackBundle\Tests\Functional\ValueObject\Feedback\Position;
+use Evrinoma\FeedbackBundle\Tests\Functional\ValueObject\Feedback\Preview;
 use Evrinoma\FeedbackBundle\Tests\Functional\ValueObject\Feedback\Title;
 use Evrinoma\TestUtilsBundle\Action\AbstractServiceTest;
 use Evrinoma\TestUtilsBundle\Browser\ApiBrowserTestInterface;
@@ -58,11 +60,18 @@ class BaseFeedback extends AbstractServiceTest implements BaseFeedbackTestInterf
             FeedbackApiDtoInterface::POSITION => Position::value(),
             FeedbackApiDtoInterface::ACTIVE => Active::value(),
             FeedbackApiDtoInterface::BODY => Body::default(),
+            FeedbackApiDtoInterface::IMAGE => Image::default(),
+            FeedbackApiDtoInterface::PREVIEW => Preview::default(),
         ];
     }
 
     public function actionPost(): void
     {
+        $this->createFeedback();
+        $this->testResponseStatusCreated();
+
+        static::$files = [];
+
         $this->createFeedback();
         $this->testResponseStatusCreated();
     }
@@ -109,15 +118,21 @@ class BaseFeedback extends AbstractServiceTest implements BaseFeedbackTestInterf
 
     public function actionPut(): void
     {
+        $query = static::getDefault([FeedbackApiDtoInterface::ID => Id::value(), FeedbackApiDtoInterface::TITLE => Title::value(), FeedbackApiDtoInterface::BODY => Body::value(), FeedbackApiDtoInterface::POSITION => Position::value()]);
+
         $find = $this->assertGet(Id::value());
 
-        $updated = $this->put(static::getDefault([FeedbackApiDtoInterface::ID => Id::value(), FeedbackApiDtoInterface::TITLE => Title::value(), FeedbackApiDtoInterface::BODY => Body::value(), FeedbackApiDtoInterface::POSITION => Position::value()]));
+        $updated = $this->put($query);
         $this->testResponseStatusOK();
 
-        Assert::assertEquals($find[PayloadModel::PAYLOAD][0][FeedbackApiDtoInterface::ID], $updated[PayloadModel::PAYLOAD][0][FeedbackApiDtoInterface::ID]);
-        Assert::assertEquals(Title::value(), $updated[PayloadModel::PAYLOAD][0][FeedbackApiDtoInterface::TITLE]);
-        Assert::assertEquals(Body::value(), $updated[PayloadModel::PAYLOAD][0][FeedbackApiDtoInterface::BODY]);
-        Assert::assertEquals(Position::value(), $updated[PayloadModel::PAYLOAD][0][FeedbackApiDtoInterface::POSITION]);
+        $this->compareResults($find, $updated, $query);
+
+        static::$files = [];
+
+        $updated = $this->put($query);
+        $this->testResponseStatusOK();
+
+        $this->compareResults($find, $updated, $query);
     }
 
     public function actionGet(): void
@@ -178,7 +193,13 @@ class BaseFeedback extends AbstractServiceTest implements BaseFeedbackTestInterf
         $this->put($query);
         $this->testResponseStatusUnprocessable();
 
-        $query = static::getDefault([FeedbackApiDtoInterface::ID => $created[PayloadModel::PAYLOAD][0][FeedbackApiDtoInterface::ID]]);
+        $query = static::getDefault([FeedbackApiDtoInterface::ID => $created[PayloadModel::PAYLOAD][0][FeedbackApiDtoInterface::ID], FeedbackApiDtoInterface::IMAGE => Image::empty(), FeedbackApiDtoInterface::PREVIEW => Preview::empty()]);
+        static::$files[static::getDtoClass()] = [];
+
+        $this->put($query);
+        $this->testResponseStatusUnprocessable();
+
+        $query = static::getDefault([FeedbackApiDtoInterface::ID => $created[PayloadModel::PAYLOAD][0][FeedbackApiDtoInterface::ID], FeedbackApiDtoInterface::IMAGE => Image::empty(), FeedbackApiDtoInterface::PREVIEW => Preview::empty()]);
         static::$files = [];
 
         $this->put($query);

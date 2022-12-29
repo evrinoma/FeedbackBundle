@@ -68,12 +68,13 @@ final class FeedbackApiController extends AbstractWrappedApiController implement
      *                     @OA\Schema(
      *                         type="object",
      *                         @OA\Property(property="class", type="string", default="Evrinoma\FeedbackBundle\Dto\FeedbackApiDto"),
-     *                         @OA\Property(property="active", type="string"),
      *                         @OA\Property(property="body", type="string"),
      *                         @OA\Property(property="title", type="string"),
      *                         @OA\Property(property="position", type="int"),
-     *                         @OA\Property(property="image", type="string",  format="binary"),
-     *                         @OA\Property(property="preview", type="string",  format="binary")
+     *                         @OA\Property(property="image", type="string"),
+     *                         @OA\Property(property="preview", type="string"),
+     *                         @OA\Property(property="Evrinoma\FeedbackBundle\Dto\FeedbackApiDto[image]", type="string",  format="binary"),
+     *                         @OA\Property(property="Evrinoma\FeedbackBundle\Dto\FeedbackApiDto[preview]", type="string",  format="binary")
      *                     )
      *                 }
      *             )
@@ -123,8 +124,10 @@ final class FeedbackApiController extends AbstractWrappedApiController implement
      *                         @OA\Property(property="body", type="string"),
      *                         @OA\Property(property="title", type="string"),
      *                         @OA\Property(property="position", type="int"),
-     *                         @OA\Property(property="image", type="string",  format="binary"),
-     *                         @OA\Property(property="preview", type="string",  format="binary")
+     *                         @OA\Property(property="image", type="string"),
+     *                         @OA\Property(property="preview", type="string"),
+     *                         @OA\Property(property="Evrinoma\FeedbackBundle\Dto\FeedbackApiDto[image]", type="string",  format="binary"),
+     *                         @OA\Property(property="Evrinoma\FeedbackBundle\Dto\FeedbackApiDto[preview]", type="string",  format="binary")
      *                     )
      *                 }
      *             )

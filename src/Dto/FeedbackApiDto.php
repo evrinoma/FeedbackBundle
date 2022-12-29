@@ -22,6 +22,7 @@ use Evrinoma\DtoCommon\ValueObject\Mutable\ImageTrait;
 use Evrinoma\DtoCommon\ValueObject\Mutable\PositionTrait;
 use Evrinoma\DtoCommon\ValueObject\Mutable\PreviewTrait;
 use Evrinoma\DtoCommon\ValueObject\Mutable\TitleTrait;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\Request;
 
 class FeedbackApiDto extends AbstractDto implements FeedbackApiDtoInterface
@@ -44,8 +45,34 @@ class FeedbackApiDto extends AbstractDto implements FeedbackApiDtoInterface
             $title = $request->get(FeedbackApiDtoInterface::TITLE);
             $position = $request->get(FeedbackApiDtoInterface::POSITION);
             $body = $request->get(FeedbackApiDtoInterface::BODY);
-            $image = $request->files->get(FeedbackApiDtoInterface::IMAGE);
-            $preview = $request->files->get(FeedbackApiDtoInterface::PREVIEW);
+
+            $files = ($request->files->has($this->getClass())) ? $request->files->get($this->getClass()) : [];
+
+            try {
+                if (\array_key_exists(FeedbackApiDtoInterface::IMAGE, $files)) {
+                    $image = $files[FeedbackApiDtoInterface::IMAGE];
+                } else {
+                    $image = $request->get(FeedbackApiDtoInterface::IMAGE);
+                    if (null !== $image) {
+                        $image = new File($image);
+                    }
+                }
+            } catch (\Exception $e) {
+                $image = null;
+            }
+
+            try {
+                if (\array_key_exists(FeedbackApiDtoInterface::PREVIEW, $files)) {
+                    $preview = $files[FeedbackApiDtoInterface::PREVIEW];
+                } else {
+                    $preview = $request->get(FeedbackApiDtoInterface::PREVIEW);
+                    if (null !== $preview) {
+                        $preview = new File($preview);
+                    }
+                }
+            } catch (\Exception $e) {
+                $preview = null;
+            }
 
             if ($active) {
                 $this->setActive($active);

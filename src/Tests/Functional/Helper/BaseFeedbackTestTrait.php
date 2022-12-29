@@ -29,8 +29,10 @@ trait BaseFeedbackTestTrait
         $fileImage = $filePreview = new UploadedFile($path, 'my_file');
 
         static::$files = [
-            FeedbackApiDtoInterface::IMAGE => $fileImage,
-            FeedbackApiDtoInterface::PREVIEW => $filePreview,
+            static::getDtoClass() => [
+                FeedbackApiDtoInterface::IMAGE => $fileImage,
+                FeedbackApiDtoInterface::PREVIEW => $filePreview,
+                ],
         ];
     }
 
@@ -63,6 +65,14 @@ trait BaseFeedbackTestTrait
         $query = static::getDefault([FeedbackApiDtoInterface::BODY => '']);
 
         return $this->post($query);
+    }
+
+    protected function compareResults(array $value, array $entity, array $query): void
+    {
+        Assert::assertEquals($value[PayloadModel::PAYLOAD][0][FeedbackApiDtoInterface::ID], $entity[PayloadModel::PAYLOAD][0][FeedbackApiDtoInterface::ID]);
+        Assert::assertEquals($query[FeedbackApiDtoInterface::TITLE], $entity[PayloadModel::PAYLOAD][0][FeedbackApiDtoInterface::TITLE]);
+        Assert::assertEquals($query[FeedbackApiDtoInterface::BODY], $entity[PayloadModel::PAYLOAD][0][FeedbackApiDtoInterface::BODY]);
+        Assert::assertEquals($query[FeedbackApiDtoInterface::POSITION], $entity[PayloadModel::PAYLOAD][0][FeedbackApiDtoInterface::POSITION]);
     }
 
     protected function checkResult($entity): void
