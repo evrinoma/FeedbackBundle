@@ -102,8 +102,8 @@ class FeedbackFixtures extends AbstractFixture implements FixtureGroupInterface,
         $short = self::getReferenceName();
         $i = 0;
 
-        foreach (static::$data as $record) {
-            $entity = new static::$class();
+        foreach ($this->getData() as $record) {
+            $entity = $this->getEntity();
             $entity
                 ->setImage($record[FeedbackApiDtoInterface::IMAGE])
                 ->setPreview($record[FeedbackApiDtoInterface::PREVIEW])
@@ -111,7 +111,11 @@ class FeedbackFixtures extends AbstractFixture implements FixtureGroupInterface,
                 ->setTitle($record[FeedbackApiDtoInterface::TITLE])
                 ->setBody($record[FeedbackApiDtoInterface::BODY])
                 ->setPosition($record[FeedbackApiDtoInterface::POSITION])
-                ->setCreatedAt(new \DateTimeImmutable($record['created_at']));
+                ->setCreatedAt(new \DateTimeImmutable($record['created_at']))
+            ;
+
+            $this->expandEntity($entity);
+
             $this->addReference($short.$i, $entity);
             $manager->persist($entity);
             ++$i;
