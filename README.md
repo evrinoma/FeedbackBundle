@@ -25,7 +25,7 @@
                  недостающие значения можно разрешить только на уровне Mediator
         entity: App\Feedback\Entity\Feedback сущность
         constraints: Вкл/выкл проверки полей сущности по умолчанию 
-        dto_class: App\Feedback\Dto\FeedbackDto класс dto с которым работает сущность
+        dto: App\Feedback\Dto\FeedbackDto класс dto с которым работает сущность
         decorates:
           command - декоратор mediator команд обратной связи 
           query - декоратор mediator запросов обратной связи
