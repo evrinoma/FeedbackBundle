@@ -78,26 +78,45 @@ class BaseFeedback extends AbstractServiceTest implements BaseFeedbackTestInterf
 
     public function actionCriteriaNotFound(): void
     {
-        $find = $this->criteria([FeedbackApiDtoInterface::DTO_CLASS => static::getDtoClass(), FeedbackApiDtoInterface::ACTIVE => Active::wrong()]);
+        $find = $this->criteria([
+            FeedbackApiDtoInterface::DTO_CLASS => static::getDtoClass(),
+            FeedbackApiDtoInterface::ACTIVE => Active::wrong(),
+        ]);
         $this->testResponseStatusNotFound();
         Assert::assertArrayHasKey(PayloadModel::PAYLOAD, $find);
 
-        $find = $this->criteria([FeedbackApiDtoInterface::DTO_CLASS => static::getDtoClass(), FeedbackApiDtoInterface::ID => Id::value(), FeedbackApiDtoInterface::ACTIVE => Active::block(), FeedbackApiDtoInterface::TITLE => Title::wrong()]);
+        $find = $this->criteria([
+            FeedbackApiDtoInterface::DTO_CLASS => static::getDtoClass(),
+            FeedbackApiDtoInterface::ID => Id::value(),
+            FeedbackApiDtoInterface::ACTIVE => Active::block(),
+            FeedbackApiDtoInterface::TITLE => Title::wrong(),
+        ]);
         $this->testResponseStatusNotFound();
         Assert::assertArrayHasKey(PayloadModel::PAYLOAD, $find);
     }
 
     public function actionCriteria(): void
     {
-        $find = $this->criteria([FeedbackApiDtoInterface::DTO_CLASS => static::getDtoClass(), FeedbackApiDtoInterface::ACTIVE => Active::value(), FeedbackApiDtoInterface::ID => Id::value()]);
+        $find = $this->criteria([
+            FeedbackApiDtoInterface::DTO_CLASS => static::getDtoClass(),
+            FeedbackApiDtoInterface::ACTIVE => Active::value(),
+            FeedbackApiDtoInterface::ID => Id::value(),
+        ]);
         $this->testResponseStatusOK();
         Assert::assertCount(1, $find[PayloadModel::PAYLOAD]);
 
-        $find = $this->criteria([FeedbackApiDtoInterface::DTO_CLASS => static::getDtoClass(), FeedbackApiDtoInterface::ACTIVE => Active::delete()]);
+        $find = $this->criteria([
+            FeedbackApiDtoInterface::DTO_CLASS => static::getDtoClass(),
+            FeedbackApiDtoInterface::ACTIVE => Active::delete(),
+        ]);
         $this->testResponseStatusOK();
         Assert::assertCount(3, $find[PayloadModel::PAYLOAD]);
 
-        $find = $this->criteria([FeedbackApiDtoInterface::DTO_CLASS => static::getDtoClass(), FeedbackApiDtoInterface::ACTIVE => Active::delete(), FeedbackApiDtoInterface::TITLE => Title::value()]);
+        $find = $this->criteria([
+            FeedbackApiDtoInterface::DTO_CLASS => static::getDtoClass(),
+            FeedbackApiDtoInterface::ACTIVE => Active::delete(),
+            FeedbackApiDtoInterface::TITLE => Title::value(),
+        ]);
         $this->testResponseStatusOK();
         Assert::assertCount(2, $find[PayloadModel::PAYLOAD]);
     }
@@ -118,7 +137,12 @@ class BaseFeedback extends AbstractServiceTest implements BaseFeedbackTestInterf
 
     public function actionPut(): void
     {
-        $query = static::getDefault([FeedbackApiDtoInterface::ID => Id::value(), FeedbackApiDtoInterface::TITLE => Title::value(), FeedbackApiDtoInterface::BODY => Body::value(), FeedbackApiDtoInterface::POSITION => Position::value()]);
+        $query = static::getDefault([
+            FeedbackApiDtoInterface::ID => Id::value(),
+            FeedbackApiDtoInterface::TITLE => Title::value(),
+            FeedbackApiDtoInterface::BODY => Body::value(),
+            FeedbackApiDtoInterface::POSITION => Position::value(),
+        ]);
 
         $find = $this->assertGet(Id::value());
 
@@ -156,7 +180,7 @@ class BaseFeedback extends AbstractServiceTest implements BaseFeedbackTestInterf
 
     public function actionDeleteUnprocessable(): void
     {
-        $response = $this->delete(Id::empty());
+        $response = $this->delete(Id::blank());
         Assert::assertArrayHasKey(PayloadModel::PAYLOAD, $response);
         $this->testResponseStatusUnprocessable();
     }
@@ -178,28 +202,45 @@ class BaseFeedback extends AbstractServiceTest implements BaseFeedbackTestInterf
         $this->testResponseStatusCreated();
         $this->checkResult($created);
 
-        $query = static::getDefault([FeedbackApiDtoInterface::ID => $created[PayloadModel::PAYLOAD][0][FeedbackApiDtoInterface::ID], FeedbackApiDtoInterface::TITLE => Title::empty()]);
+        $query = static::getDefault([
+            FeedbackApiDtoInterface::ID => $created[PayloadModel::PAYLOAD][0][FeedbackApiDtoInterface::ID],
+            FeedbackApiDtoInterface::TITLE => Title::blank(),
+        ]);
 
         $this->put($query);
         $this->testResponseStatusUnprocessable();
 
-        $query = static::getDefault([FeedbackApiDtoInterface::ID => $created[PayloadModel::PAYLOAD][0][FeedbackApiDtoInterface::ID], FeedbackApiDtoInterface::BODY => Body::empty()]);
+        $query = static::getDefault([
+            FeedbackApiDtoInterface::ID => $created[PayloadModel::PAYLOAD][0][FeedbackApiDtoInterface::ID],
+            FeedbackApiDtoInterface::BODY => Body::blank(),
+        ]);
 
         $this->put($query);
         $this->testResponseStatusUnprocessable();
 
-        $query = static::getDefault([FeedbackApiDtoInterface::ID => $created[PayloadModel::PAYLOAD][0][FeedbackApiDtoInterface::ID], FeedbackApiDtoInterface::POSITION => Position::empty()]);
+        $query = static::getDefault([
+            FeedbackApiDtoInterface::ID => $created[PayloadModel::PAYLOAD][0][FeedbackApiDtoInterface::ID],
+            FeedbackApiDtoInterface::POSITION => Position::blank(),
+        ]);
 
         $this->put($query);
         $this->testResponseStatusUnprocessable();
 
-        $query = static::getDefault([FeedbackApiDtoInterface::ID => $created[PayloadModel::PAYLOAD][0][FeedbackApiDtoInterface::ID], FeedbackApiDtoInterface::IMAGE => Image::empty(), FeedbackApiDtoInterface::PREVIEW => Preview::empty()]);
+        $query = static::getDefault([
+            FeedbackApiDtoInterface::ID => $created[PayloadModel::PAYLOAD][0][FeedbackApiDtoInterface::ID],
+            FeedbackApiDtoInterface::IMAGE => Image::blank(),
+            FeedbackApiDtoInterface::PREVIEW => Preview::blank(),
+        ]);
         static::$files[static::getDtoClass()] = [];
 
         $this->put($query);
         $this->testResponseStatusUnprocessable();
 
-        $query = static::getDefault([FeedbackApiDtoInterface::ID => $created[PayloadModel::PAYLOAD][0][FeedbackApiDtoInterface::ID], FeedbackApiDtoInterface::IMAGE => Image::empty(), FeedbackApiDtoInterface::PREVIEW => Preview::empty()]);
+        $query = static::getDefault([
+            FeedbackApiDtoInterface::ID => $created[PayloadModel::PAYLOAD][0][FeedbackApiDtoInterface::ID],
+            FeedbackApiDtoInterface::IMAGE => Image::blank(),
+            FeedbackApiDtoInterface::PREVIEW => Preview::blank(),
+        ]);
         static::$files = [];
 
         $this->put($query);
