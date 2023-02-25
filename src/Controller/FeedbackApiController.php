@@ -99,6 +99,7 @@ final class FeedbackApiController extends AbstractWrappedApiController implement
         try {
             $this->facade->post($feedbackApiDto, $group, $json);
         } catch (\Exception $e) {
+            $json = [];
             $error = $this->setRestStatus($e);
         }
 
@@ -150,6 +151,7 @@ final class FeedbackApiController extends AbstractWrappedApiController implement
         try {
             $this->facade->put($feedbackApiDto, $group, $json);
         } catch (\Exception $e) {
+            $json = [];
             $error = $this->setRestStatus($e);
         }
 
@@ -199,6 +201,7 @@ final class FeedbackApiController extends AbstractWrappedApiController implement
         try {
             $this->facade->delete($feedbackApiDto, '', $json);
         } catch (\Exception $e) {
+            $json = [];
             $error = $this->setRestStatus($e);
         }
 
@@ -277,6 +280,7 @@ final class FeedbackApiController extends AbstractWrappedApiController implement
         try {
             $this->facade->criteria($feedbackApiDto, $group, $json);
         } catch (\Exception $e) {
+            $json = [];
             $error = $this->setRestStatus($e);
         }
 
@@ -325,6 +329,7 @@ final class FeedbackApiController extends AbstractWrappedApiController implement
         try {
             $this->facade->get($feedbackApiDto, $group, $json);
         } catch (\Exception $e) {
+            $json = [];
             $error = $this->setRestStatus($e);
         }
 
