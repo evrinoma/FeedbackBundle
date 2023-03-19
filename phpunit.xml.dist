@@ -12,7 +12,7 @@
         <ini name="memory_limit" value="-1"/>
     </php>
     <testsuites>
-        <testsuite name="FeedbackBundle Test Suite">
+        <testsuite name="Feedback Test Suite">
             <directory>./Tests</directory>
         </testsuite>
     </testsuites>
