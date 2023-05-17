@@ -118,7 +118,7 @@ class FeedbackFixtures extends AbstractFixture implements FixtureGroupInterface,
 
             $this->addReference($short.$i, $entity);
             $manager->persist($entity);
-            ++$i;
+            $i++;
         }
 
         return $this;
