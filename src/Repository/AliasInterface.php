@@ -16,5 +16,5 @@ namespace Evrinoma\FeedbackBundle\Repository;
 interface AliasInterface
 {
     public const FEEDBACK = 'feedback';
-    public const FEEDBACKS = AliasInterface::FEEDBACK . 's';
+    public const FEEDBACKS = AliasInterface::FEEDBACK.'s';
 }
