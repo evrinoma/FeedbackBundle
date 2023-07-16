@@ -6,7 +6,7 @@ services:
   evrinoma.feedback.api.controller:
     class: Evrinoma\FeedbackBundle\Controller\FeedbackApiController
     arguments:
-      - '@jms_serializer'
+      - '@evrinoma.utils.serializer'
       - '@request_stack'
       - '@evrinoma.dto.factory'
       - '@evrinoma.feedback.facade'
@@ -101,3 +101,11 @@ services:
 
   Evrinoma\FeedbackBundle\System\FileSystemInterface:
     alias: evrinoma.feedback.system.file_system
+
+  evrinoma.feedback.serializer.feedback:
+    class: Evrinoma\FeedbackBundle\Serializer\Symfony\ConfigurationFeedback
+    public: true
+    arguments:
+      - '%kernel.project_dir%'
+    tags:
+      - { name: 'evrinoma.serializer' }

@@ -3,4 +3,4 @@ jms_serializer:
     directories:
       FeedbackBundle:
         namespace_prefix: "Evrinoma\\FeedbackBundle"
-        path: '%kernel.root_dir%/Resources/config/serializer/FeedbackBundle'
+        path: '%kernel.root_dir%/src/Serializer/JMS/serializer/FeedbackBundle'

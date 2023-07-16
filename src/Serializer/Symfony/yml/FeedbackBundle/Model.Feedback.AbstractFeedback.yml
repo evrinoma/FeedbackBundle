@@ -1,0 +1,55 @@
+Evrinoma\FeedbackBundle\Model\Feedback\AbstractFeedback:
+  attributes:
+    id:
+      groups: [ 
+        API_GET_FEEDBACK, API_POST_FEEDBACK, API_PUT_FEEDBACK, 
+      ]
+      expose: true
+    createdAt:
+      contexts:
+        type:
+          context:
+            datetime_format: 'Y-m-d H:i'
+      groups: [ 
+        API_GET_FEEDBACK, API_POST_FEEDBACK, API_PUT_FEEDBACK, 
+      ]
+      expose: true
+    updatedAt:
+      contexts:
+        type:
+          context:
+            datetime_format: 'Y-m-d H:i'
+      groups: [ 
+        API_GET_FEEDBACK, API_POST_FEEDBACK, API_PUT_FEEDBACK, 
+      ]
+      expose: true
+    active:
+      groups: [ 
+        API_GET_FEEDBACK, API_POST_FEEDBACK, API_PUT_FEEDBACK, 
+      ]
+      expose: true
+    body:
+      groups: [ 
+        API_GET_FEEDBACK, API_POST_FEEDBACK, API_PUT_FEEDBACK, 
+      ]
+      expose: true
+    title:
+      groups: [ 
+        API_GET_FEEDBACK, API_POST_FEEDBACK, API_PUT_FEEDBACK, 
+      ]
+      expose: true
+    position:
+      groups: [ 
+        API_GET_FEEDBACK, API_POST_FEEDBACK, API_PUT_FEEDBACK, 
+      ]
+      expose: true
+    image:
+      groups: [ 
+        API_GET_FEEDBACK, API_POST_FEEDBACK, API_PUT_FEEDBACK, 
+      ]
+      expose: true
+    preview:
+      groups: [ 
+        API_GET_FEEDBACK, API_POST_FEEDBACK, API_PUT_FEEDBACK, 
+      ]
+      expose: true
