@@ -1,0 +1,6 @@
+services:
+  evrinoma.video_content.serializer:
+    class: Evrinoma\VideoContentBundle\Serializer\Symfony\ConfigurationVideoContent
+    public: true
+    tags:
+      - { name: 'evrinoma.serializer' }

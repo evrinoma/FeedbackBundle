@@ -122,6 +122,11 @@ class EvrinomaFeedbackExtension extends Extension
 
         $this->wireConstraintTag($container);
 
+        if ($config['serializer']['enabled']) {
+            $loader->load('serializers.yml');
+            $this->wireSerializer($container, $config['serializer']['path']);
+        }
+
         if ($config['decorates']) {
             $remap = [];
             foreach ($config['decorates'] as $key => $service) {
@@ -181,6 +186,16 @@ class EvrinomaFeedbackExtension extends Extension
         $definitionAdaptor = new Definition(AdaptorRegistry::class);
         $definitionAdaptor->addArgument($registry);
         $container->addDefinitions(['evrinoma.'.$this->getAlias().'.adaptor' => $definitionAdaptor]);
+    }
+
+    private function wireSerializer(ContainerBuilder $container, string $path): void
+    {
+        foreach ($container->findTaggedServiceIds('evrinoma.serializer') as $key => $item) {
+            if (strcmp('evrinoma.'.$this->getAlias(), $key)) {
+                $definition = $container->getDefinition($key);
+                $definition->setArgument(0, $path);
+            }
+        }
     }
 
     private function wireConstraintTag(ContainerBuilder $container): void

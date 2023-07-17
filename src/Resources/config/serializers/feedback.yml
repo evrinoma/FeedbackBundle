@@ -1,0 +1,6 @@
+services:
+  evrinoma.feedback.serializer.feedback:
+    class: Evrinoma\FeedbackBundle\Serializer\Symfony\ConfigurationFeedback
+    public: true
+    tags:
+      - { name: 'evrinoma.serializer' }
