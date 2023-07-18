@@ -17,5 +17,5 @@ use Evrinoma\UtilsBundle\Serialize\AbstractConfiguration;
 
 class ConfigurationFeedback extends AbstractConfiguration
 {
-    protected string $fileName = '/src/Serializer/Symfony/yml/FeedbackBundle/Model.Feedback.AbstractFeedback.yml';
+    protected string $fileName = '/src/Resources/serializer/Symfony/serializer/FeedbackBundle/Model.Feedback.AbstractFeedback.yml';
 }
