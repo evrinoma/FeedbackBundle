@@ -81,7 +81,7 @@ final class FeedbackApiController extends AbstractWrappedApiController implement
      *         )
      *     )
      * )
-     * @OA\Response(response=200, description="Create feedback")
+     * @OA\Response(response=201, description="Create feedback")
      *
      * @return JsonResponse
      */
