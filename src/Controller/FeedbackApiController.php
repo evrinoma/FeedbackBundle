@@ -103,7 +103,7 @@ final class FeedbackApiController extends AbstractWrappedApiController implement
             $error = $this->setRestStatus($e);
         }
 
-        return $this->setSerializeGroup($group)->JsonResponse('Create feedback', $json, $error);
+        return $this->setSerializeGroup($group)->jsonResponse('Create feedback', $json, $error);
     }
 
     /**
@@ -155,7 +155,7 @@ final class FeedbackApiController extends AbstractWrappedApiController implement
             $error = $this->setRestStatus($e);
         }
 
-        return $this->setSerializeGroup($group)->JsonResponse('Save feedback', $json, $error);
+        return $this->setSerializeGroup($group)->jsonResponse('Save feedback', $json, $error);
     }
 
     /**
@@ -197,15 +197,16 @@ final class FeedbackApiController extends AbstractWrappedApiController implement
 
         $json = [];
         $error = [];
+        $group = GroupInterface::API_DELETE_FEEDBACK;
 
         try {
-            $this->facade->delete($feedbackApiDto, '', $json);
+            $this->facade->delete($feedbackApiDto, $group, $json);
         } catch (\Exception $e) {
             $json = [];
             $error = $this->setRestStatus($e);
         }
 
-        return $this->JsonResponse('Delete feedback', $json, $error);
+        return $this->setSerializeGroup($group)->jsonResponse('Delete feedback', $json, $error);
     }
 
     /**
@@ -284,7 +285,7 @@ final class FeedbackApiController extends AbstractWrappedApiController implement
             $error = $this->setRestStatus($e);
         }
 
-        return $this->setSerializeGroup($group)->JsonResponse('Get feedback', $json, $error);
+        return $this->setSerializeGroup($group)->jsonResponse('Get feedback', $json, $error);
     }
 
     /**
@@ -333,7 +334,7 @@ final class FeedbackApiController extends AbstractWrappedApiController implement
             $error = $this->setRestStatus($e);
         }
 
-        return $this->setSerializeGroup($group)->JsonResponse('Get feedback', $json, $error);
+        return $this->setSerializeGroup($group)->jsonResponse('Get feedback', $json, $error);
     }
 
     /**

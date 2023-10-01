@@ -59,7 +59,8 @@ Actions в контроллере разбиты на две группы
 
     1. API_GET_FEEDBACK, API_CRITERIA_FEEDBACK - получение обратной связи
     2. API_POST_FEEDBACK - создание обратной связи
-    3. API_PUT_FEEDBACK -  редактирование обратной связи
+    3. API_PUT_FEEDBACK - редактирование обратной связи
+    4. API_DELETE_FEEDBACK - удаление обратной связи
 
 # Статусы:
 
