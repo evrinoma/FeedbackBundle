@@ -48,7 +48,7 @@ class DtoPreValidator extends AbstractPreValidator implements DtoPreValidatorInt
             ->checkId($dto);
     }
 
-    private function checkPosition(DtoInterface $dto): self
+    protected function checkPosition(DtoInterface $dto): self
     {
         /** @var FeedbackApiDtoInterface $dto */
         if (!$dto->hasPosition()) {
@@ -58,7 +58,7 @@ class DtoPreValidator extends AbstractPreValidator implements DtoPreValidatorInt
         return $this;
     }
 
-    private function checkTitle(DtoInterface $dto): self
+    protected function checkTitle(DtoInterface $dto): self
     {
         /** @var FeedbackApiDtoInterface $dto */
         if (!$dto->hasTitle()) {
@@ -68,7 +68,7 @@ class DtoPreValidator extends AbstractPreValidator implements DtoPreValidatorInt
         return $this;
     }
 
-    private function checkActive(DtoInterface $dto): self
+    protected function checkActive(DtoInterface $dto): self
     {
         /** @var FeedbackApiDtoInterface $dto */
         if (!$dto->hasActive()) {
@@ -78,7 +78,7 @@ class DtoPreValidator extends AbstractPreValidator implements DtoPreValidatorInt
         return $this;
     }
 
-    private function checkImage(DtoInterface $dto): self
+    protected function checkImage(DtoInterface $dto): self
     {
         /** @var FeedbackApiDtoInterface $dto */
         if (!$dto->hasImage()) {
@@ -88,7 +88,7 @@ class DtoPreValidator extends AbstractPreValidator implements DtoPreValidatorInt
         return $this;
     }
 
-    private function checkPreview(DtoInterface $dto): self
+    protected function checkPreview(DtoInterface $dto): self
     {
         /** @var FeedbackApiDtoInterface $dto */
         if (!$dto->hasPreview()) {
@@ -98,7 +98,7 @@ class DtoPreValidator extends AbstractPreValidator implements DtoPreValidatorInt
         return $this;
     }
 
-    private function checkBody(DtoInterface $dto): self
+    protected function checkBody(DtoInterface $dto): self
     {
         /** @var FeedbackApiDtoInterface $dto */
         if (!$dto->hasBody()) {
@@ -108,7 +108,7 @@ class DtoPreValidator extends AbstractPreValidator implements DtoPreValidatorInt
         return $this;
     }
 
-    private function checkId(DtoInterface $dto): self
+    protected function checkId(DtoInterface $dto): self
     {
         /** @var FeedbackApiDtoInterface $dto */
         if (!$dto->hasId()) {
